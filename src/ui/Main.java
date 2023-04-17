@@ -23,11 +23,13 @@ public class Main {
 
         do{
             System.out.println(
-                   "Menu******   " +
-                           "1.Country: " +
-                           "2.Print Winners: " +
-                           "3.Print Total Medals: " +
-                           "4.Print Countries: "
+                   "Menu******   \n" +
+                           "1.Country: \n" +
+                           "2.Print Winners: \n" +
+                           "3.Print Total Medals: \n" +
+                           "4.Print Countries: \n" +
+                           "5.Save Data:\n"
+
             );
             System.out.println("Selection: ");
             option = read.nextInt();
@@ -60,6 +62,12 @@ public class Main {
                 System.out.println("Countries");
                 System.out.println(data.printCountries());
                 break;
+            case 5:
+                System.out.print("Enter the file name: ");
+                String fileName = read.nextLine();
+                data.saveData(fileName);
+                System.out.println("Saving Data...");
+                System.out.println("Data Saved");
             default:
                 System.out.println("Not an available option");
                 break;

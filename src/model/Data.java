@@ -121,11 +121,11 @@ public class Data {
         Collections.addAll(countries, countriesFromJson);
     }
 
-    public void saveData (String fileNmae){
+    public void saveData (String fileName){
         String json = gson.toJson(countries);
 
         try{
-            FileOutputStream fos = new FileOutputStream((new File("saves\" + fileName + "+ json)));
+            FileOutputStream fos = new FileOutputStream((new File("saveData/" + fileName + ".json")));
             fos.write(json.getBytes(StandardCharsets.UTF_8));
             fos.close();
         }catch(IOException e){
