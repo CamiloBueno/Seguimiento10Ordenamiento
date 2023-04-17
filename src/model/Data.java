@@ -73,11 +73,11 @@ public class Data {
     private ArrayList<Country> sortCountries() {
         ArrayList<Country> temp = countries;
 
-        for (int i = 0; i < temp.size(); i++) {
+        for (int i = 0; i < temp.size()-1; i++) {
             for (int j = 1; j < temp.size() - i; j++) {
-                Country country1 = temp.get(j);
-                Country country2 = temp.get(j - 1);
-                if (country2.compareTo(country1) < 0) {
+                String country1 = temp.get(j).getNameOfCountry();
+                String country2 = temp.get(j - 1).getNameOfCountry();
+                if (country1.compareTo(country2) < 0) {
                     //values
                     Country lastOne = temp.get(j - 1);
                     Country current = temp.get(j);
@@ -102,10 +102,10 @@ public class Data {
     public void loadData(int choice) throws IOException {
         countries.clear();
 
-        String folder = "saves";
+        String folder = "saveData";
         String[] fileList = new File(folder).list();
 
-        String path = "saves/" + fileList[choice - 1];
+        String path = "saveData/" + fileList[choice - 1];
         File file = new File(path);
 
         FileInputStream fis = new FileInputStream(file);
